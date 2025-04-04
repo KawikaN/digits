@@ -92,3 +92,35 @@ export async function changePassword(credentials: { email: string; password: str
     },
   });
 }
+
+export async function addContact(contact: {
+  firstName: string;
+  lastName: string;
+  address: string;
+  image: string;
+  description: string;
+  owner: string;
+}) {
+  await prisma.contact.create({
+    data: contact,
+  });
+  // After adding, redirect to the list page
+  redirect('/list');
+}
+
+export async function editContact(contact: {
+  id: number;
+  firstName: string;
+  lastName: string;
+  address: string;
+  image: string;
+  description: string;
+  owner: string;
+}) {
+  return prisma.contact.update({
+    where: {
+      id: contact.id,
+    },
+    data: contact,
+  });
+}

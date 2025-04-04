@@ -3,7 +3,6 @@ import ContactCard from '@/components/ContactCard';
 import { prisma } from '@/lib/prisma';
 import { getServerSession } from 'next-auth';
 import authOptions from '@/lib/authOptions';
-import { Contact } from '@/lib/validationSchemas';
 
 export default async function ListContacts() {
   const session = await getServerSession(authOptions);

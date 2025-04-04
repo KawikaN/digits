@@ -23,9 +23,11 @@ const NavBar: React.FC = () => {
             {currentUser
               ? [
                   <Nav.Link id="add-stuff-nav" href="/add" key="add" active={pathName === '/add'}>
-                    Add Stuff
+                    Add Contact
                   </Nav.Link>,
-                  <Nav.Link href="/list">List Contacts</Nav.Link>,
+                  <Nav.Link href="/list" key="list" active={pathName === '/list'}>
+                    List Contacts
+                  </Nav.Link>,
                 ]
               : ''}
             {currentUser && role === 'ADMIN' ? (
@@ -39,22 +41,22 @@ const NavBar: React.FC = () => {
           <Nav>
             {session ? (
               <NavDropdown id="login-dropdown" title={currentUser}>
-                <NavDropdown.Item id="login-dropdown-sign-out" href="/api/auth/signout">
+                <NavDropdown.Item id="login-dropdown-sign-out" href="/api/auth/signout" key="signout">
                   <BoxArrowRight />
                   Sign Out
                 </NavDropdown.Item>
-                <NavDropdown.Item id="login-dropdown-change-password" href="/auth/change-password">
+                <NavDropdown.Item id="login-dropdown-change-password" href="/auth/change-password" key="changepassword">
                   <Lock />
                   Change Password
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
               <NavDropdown id="login-dropdown" title="Login">
-                <NavDropdown.Item id="login-dropdown-sign-in" href="/auth/signin">
+                <NavDropdown.Item id="login-dropdown-sign-in" href="/auth/signin" key="signin">
                   <PersonFill />
                   Sign in
                 </NavDropdown.Item>
-                <NavDropdown.Item id="login-dropdown-sign-up" href="/auth/signup">
+                <NavDropdown.Item id="login-dropdown-sign-up" href="/auth/signup" key="signup">
                   <PersonPlusFill />
                   Sign up
                 </NavDropdown.Item>
