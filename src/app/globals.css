@@ -21,7 +21,7 @@ body {
 body {
   --bs-dark: var(--nat-navbar-bg);
   --bs-dark-rgb: var(--nat-navbar-bg-rgb);
-  background: fixed center url("/download.jpg");
+  background: fixed center url("/high-resolution-hawaii-beach-photo-m.jpg");
   background-size: cover;
 }
 
