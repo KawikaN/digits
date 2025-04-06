@@ -1,13 +1,17 @@
 "use client";
 
-import { Card } from 'react-bootstrap';
-import { Contact } from '@/lib/validationSchemas';
+import { Card, ListGroup } from 'react-bootstrap';
+import { Contact, Note } from '@/lib/validationSchemas';
+import Link from 'next/link';
+import NoteItem from './NoteItem';
+import AddNoteForm from './AddNoteForm';
 
 interface ContactCardAdminProps {
   contact: Contact;
+  notes: Note[];
 }
 
-export default function ContactCardAdmin({ contact }: ContactCardAdminProps) {
+export default function ContactCardAdmin({ contact, notes }: ContactCardAdminProps) {
   return (
     <Card className="h-100">
       <Card.Header>
@@ -21,8 +25,16 @@ export default function ContactCardAdmin({ contact }: ContactCardAdminProps) {
       </Card.Header>
       <Card.Body>
         <Card.Text>{contact.description}</Card.Text>
-        <p className="blockquote-footer">{contact.owner}</p>
+        <ListGroup variant="flush">
+          {notes.map((note) => (
+            <NoteItem key={note.id} note={note} />
+          ))}
+        </ListGroup>
+        <AddNoteForm contactId={contact.id as number} />
       </Card.Body>
+      <Card.Footer>
+        <Link href={`/edit-contact/${contact.id}`}>Edit</Link>
+      </Card.Footer>
     </Card>
   );
 } 
