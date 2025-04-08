@@ -23,25 +23,18 @@ enum Role {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
   password String
-  role     Role   @default(USER)
+  role     Role      @default(USER)
+  contacts Contact[]
 }
 
 enum Condition {
-  excellent
-  good
-  fair
   poor
-}
-
-model Stuff {
-  id        Int       @id @default(autoincrement())
-  name      String
-  quantity  Int
-  condition Condition
-  owner     String
+  fair
+  good
+  excellent
 }
 
 model Contact {
@@ -53,13 +46,14 @@ model Contact {
   description String
   owner       String
   notes       Note[]
+  user        User     @relation(fields: [owner], references: [email])
 }
 
 model Note {
   id        Int      @id @default(autoincrement())
-  note      String
+  content   String
+  contact   Contact  @relation(fields: [contactId], references: [id])
   contactId Int
-  owner     String
   createdAt DateTime @default(now())
-  Contact   Contact  @relation(fields: [contactId], references: [id])
+  updatedAt DateTime @updatedAt
 }

@@ -25,17 +25,15 @@ const NavBar: React.FC = () => {
                   <Nav.Link id="add-stuff-nav" href="/add" key="add" active={pathName === '/add'}>
                     Add Contact
                   </Nav.Link>,
-                  <Nav.Link href="/list" key="list" active={pathName === '/list'}>
+                  <Nav.Link id="list-contacts-nav" href="/list" key="list" active={pathName === '/list'}>
                     List Contacts
                   </Nav.Link>,
                 ]
               : ''}
-            {currentUser && role === 'ADMIN' ? (
-              <Nav.Link id="admin-stuff-nav" href="/admin" key="admin" active={pathName === '/admin'}>
-                Admin
+            {session?.user?.role === 'ADMIN' && (
+              <Nav.Link id="admin-contacts-nav" href="/admin" key="admin" active={pathName === '/admin'}>
+                Admin Contacts
               </Nav.Link>
-            ) : (
-              ''
             )}
           </Nav>
           <Nav>
