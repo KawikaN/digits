@@ -30,17 +30,17 @@ Digits is a contact management application that allows users to:
 ## Application Walkthrough
 
 ### Landing Page
-[Screenshot will be added here]
+![Landing Page](/untitled%20folder/Screenshot%202025-04-07%20at%209.19.57%20PM.png)
 
 The landing page provides an overview of the application and its features.
 
 ### Sign In Page
-[Screenshot will be added here]
+![Sign In Page](/untitled%20folder/Screenshot%202025-04-07%20at%209.20.15%20PM.png)
 
 Users can sign in with their email and password.
 
 ### List Contacts Page
-[Screenshot will be added here]
+![List Contacts Page](/untitled%20folder/Screenshot%202025-04-07%20at%209.20.56%20PM.png)
 
 Shows all contacts associated with the current user. Each contact card displays:
 - Contact's name
@@ -50,7 +50,7 @@ Shows all contacts associated with the current user. Each contact card displays:
 - Notes associated with the contact
 
 ### Add Contact Page
-[Screenshot will be added here]
+![Add Contact Page](/untitled%20folder/Screenshot%202025-04-07%20at%209.21.18%20PM.png)
 
 Allows users to add new contacts with the following information:
 - First Name
@@ -60,6 +60,6 @@ Allows users to add new contacts with the following information:
 - Profile Image URL
 
 ### Admin Page
-[Screenshot will be added here]
+![Admin Page](/untitled%20folder/Screenshot%202025-04-07%20at%209.54.36%20PM.png)
 
 Administrators can view and manage all contacts in the system, regardless of owner.

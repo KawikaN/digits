@@ -1,18 +1,26 @@
-import { Col, Container, Row } from 'react-bootstrap';
+'use client';
+
+import { Container } from 'react-bootstrap';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 /** Render a Not Authorized page if the user enters a URL that they don't have authorization for. */
-const NotAuthorized = () => (
-  <main>
-    <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={4} className="text-center">
-          <h2>
-            <p>Not Authorized</p>
-          </h2>
-        </Col>
-      </Row>
-    </Container>
-  </main>
-);
+export default function NotAuthorizedPage() {
+  const router = useRouter();
 
-export default NotAuthorized;
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push('/');
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [router]);
+
+  return (
+    <Container className="py-4 text-center">
+      <h1>Not Authorized</h1>
+      <p>You do not have permission to access this page.</p>
+      <p>Redirecting to home page...</p>
+    </Container>
+  );
+}
